@@ -34,7 +34,7 @@ namespace Octopus.Client
         private readonly HttpClient client;
         private readonly CookieContainer cookieContainer = new CookieContainer();
         private readonly Uri cookieOriginUri;
-        // ReSharper disable once RedundantDefaultMemberInitializer. Mandatory assigment to prevent compiler error CS0649. 
+        // ReSharper disable once RedundantDefaultMemberInitializer. Mandatory assignment to prevent compiler error CS0649. 
         private readonly bool ignoreSslErrors = false;
         private bool ignoreSslErrorMessageLogged;
         private string antiforgeryCookieName;
@@ -85,7 +85,7 @@ namespace Octopus.Client
 
         private Uri BuildCookieUri(OctopusServerEndpoint octopusServerEndpoint)
         {
-            // The CookieContainer is a bit funny - it sets the cookie without the port, but doesn't ignore the port when retreiving cookies
+            // The CookieContainer is a bit funny - it sets the cookie without the port, but doesn't ignore the port when retrieving cookies
             // From what I can see it uses the Uri.Authority value - which contains the port number
             // We need to clear the port in order to successfully get cookies for the same origin
             var uriBuilder = new UriBuilder(octopusServerEndpoint.OctopusServer.Resolve("/")) {Port = 0};
